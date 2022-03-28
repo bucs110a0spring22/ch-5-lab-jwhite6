@@ -8,18 +8,22 @@
 _Replace anything surrounded by the `< >` symbols._
 
 ## SUMMARY:
- < Provide a short description of your program's functionality. No more than a couple sentences. >
+
+I learned how to use and reuse functions and how to use boolean functions to execute code. I also learned how to run a Monte Carlo simulation and create a game of darts. 
 
 ## GRACE DAYS
-Grace days used for this assignment: < # >
+Grace days used for this assignment: 5
 
-Grace days remaining: < # >/5
+Grace days remaining: 0
 
 ## KNOWN BUGS AND INCOMPLETE PARTS:
- < What parts of the project you were not able to complete >
+ 
 
 ## REFERENCES:
- < List any outside resources used >
+
+https://stackoverflow.com/questions/29479834/python-turtles-pi-and-monte-carlo
+
+https://docs.python.org/3/library/turtle.html
 
 ## MISCELLANEOUS COMMENTS:
- < Anything you would like the grader to know >
+

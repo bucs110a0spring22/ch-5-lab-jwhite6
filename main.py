@@ -29,13 +29,91 @@ import random
 import time
 
 #########################################################
-#                   Your Code Goes Below                #
+#                  Your Code Goes Below                 #
 #########################################################
 
+def drawSquare(myturtle = None, width = 0, top_left_x = 0, top_left_y = 0):
+  myturtle.goto(0, 0)
+  for i in range(4):
+    myturtle.pendown()
+    myturtle.forward(width)
+    myturtle.left(90)
+  myturtle.penup()
+  
+def drawLine(myturtle = None, x_start = 0, y_start = 0, x_end = 0, y_end = 0):
+  myturtle.goto(1, 0)
+  myturtle.pendown()
+  myturtle.goto(1, 2)
+  myturtle.penup()
+  myturtle.goto(0, 1)
+  myturtle.pendown()
+  myturtle.goto(2, 1)
+  myturtle.penup()
+  
+def drawCircle(myturtle = None, radius = 1):
+  myturtle.goto(1, 0)
+  myturtle.pendown()
+  myturtle.circle(radius)
+  myturtle.penup()
 
+def setUpDartboard(myscreen = None, myturtle = None):
+  myscreen.setworldcoordinates(-1, -1, 3, 3)
+  drawSquare(myturtle, 2)
+  drawLine(myturtle)
+  drawCircle(myturtle)
+
+def isInCircle(myturtle, radius = 0):
+  return (myturtle.distance(1, 1) <= 1)
+  
+def throwDart(myturtle):
+  x = random.uniform(0, 2)
+  y = random.uniform(0, 2)
+  myturtle.goto(x, y)
+  if isInCircle(myturtle):
+    myturtle.color("green")
+  else:
+    myturtle.color("red")
+  myturtle.dot()
+  myturtle.color("black")  
+  
+def playDarts(myturtle):
+  p1 = 0
+  p2 = 0
+  t = 0
+  
+  for i in range(10):
+    throwDart(myturtle)
+    if isInCircle(myturtle):
+      p1 += 1
+      t += 1
+    else:
+      t += 1
+    throwDart(myturtle)
+    if isInCircle(myturtle):
+      p2 += 1
+      t += 1
+    else:
+      t += 1
+      
+  if p1 == p2:
+    print("Draw")
+  elif p1 > p2:
+    print("Player 1 is the champion!")
+  else:
+    print("Player 2 is the champion!")
+
+def montePi(myturtle, num_darts = 0):
+  inside_count = 0
+  for i in range(num_darts):
+    throwDart(myturtle)
+    if isInCircle(myturtle): 
+      inside_count += 1
+
+  approx_pi = (inside_count / num_darts) * 4
+  return approx_pi
 
 #########################################################
-#         Do not alter any code below here              #
+#            Do not alter any code below here           #
 #       Your code must work with the main proivided     #
 #########################################################
 def main():
